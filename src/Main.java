@@ -1,20 +1,20 @@
 import lada.LadaNiva;
+import listener.LadaNivaListener;
 
 import java.beans.PropertyChangeListener;
 
 public class Main {
     public static void main(String[] args) {
 
-        PropertyChangeListener propertyChangeListener = evt -> {
-            if (LadaNiva.PROP_PUT.equals(evt.getPropertyName())) {
-                System.out.println("Lada Niva Warming Up....");
-            }
-        };
 
-        System.out.println("Hello world!");
+        System.out.println("Hello Russia!");
         LadaNiva theCommando=new LadaNiva();
-        theCommando.addPropertyChangeListener(propertyChangeListener);
+        theCommando.addPropertyChangeListener(LadaNivaListener.putEventListener);
+        theCommando.addPropertyChangeListener(LadaNivaListener.removeEventListener);
         theCommando.put("ok","test");
+        theCommando.remove("ok");
+        System.out.println("Was The Value Really Removed:"+theCommando.get("ok"));
+
     }
 
 
