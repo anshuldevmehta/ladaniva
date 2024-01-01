@@ -13,7 +13,7 @@ public class LadaNivaListener
    };
 
     public static PropertyChangeListener removeEventListener = evt -> {
-        if (LadaNiva.PROP_PUT.equals(evt.getPropertyName())) {
+        if (LadaNiva.PROP_REMOVE.equals(evt.getPropertyName())) {
             System.out.println("Lada Niva Cleaning Up....new value..."+evt.getNewValue());
         }
     };
